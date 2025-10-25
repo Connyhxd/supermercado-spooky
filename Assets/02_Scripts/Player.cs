@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,10 +15,13 @@ public class Player : MonoBehaviour
     [SerializeField] public bool canJump = true;
 
     [Header("RAYCAST")]
-    public float rayDistance = 5f;
+    public float rayDistance = 3f;
     public Transform pickedObject;
     public Transform playerHands;
     public LayerMask rayDetectoionLayer;
+
+    [Header("UI")]
+    public TextMeshProUGUI objectNameText;
 
     private void Awake()
     {
@@ -106,6 +110,15 @@ public class Player : MonoBehaviour
                     PickItem(hit.transform);
                 }
             }
+        }
+
+        if (isHittingItem)
+        {
+            objectNameText.text = hit.transform.name;
+        }
+        else
+        {
+            objectNameText.text = null;
         }
     }
 
