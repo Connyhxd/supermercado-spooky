@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     [Header("UI")]
     public TextMeshProUGUI objectNameText;
+    public TextMeshProUGUI objectTypeText;
+    public TextMeshProUGUI objectPriceText;
 
     private void Awake()
     {
@@ -114,11 +116,17 @@ public class Player : MonoBehaviour
 
         if (isHittingItem)
         {
-            objectNameText.text = hit.transform.name;
+            Item item = hit.transform.GetComponent<Item>();
+
+            objectNameText.text = item.itemTemplate.itemName;
+            objectTypeText.text = item.itemTemplate.itemType;
+            objectPriceText.text = item.itemTemplate.itemPrice.ToString();
         }
         else
         {
             objectNameText.text = null;
+            objectTypeText.text = null;
+            objectPriceText.text = null;
         }
     }
 
