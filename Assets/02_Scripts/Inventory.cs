@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
         if (item != null && !itemsInCart.Contains(item))
         {
             itemsInCart.Add(item);
+            CheckProgress();
         }
     }
 
@@ -22,6 +23,20 @@ public class Inventory : MonoBehaviour
         if (item != null && itemsInCart.Contains(item))
         {
             itemsInCart.Remove(item);
+            CheckProgress();
+        }
+    }
+
+    private void CheckProgress()
+    {
+        int correctItems = 0;
+
+        foreach (Item item in itemsInCart)
+        {
+            if (listGenerator.IsItemInShoppingList(item.itemTemplate))
+            {
+                correctItems++;
+            }
         }
     }
 

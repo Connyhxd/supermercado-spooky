@@ -4,9 +4,9 @@ using TMPro;
 
 public class ListGenerator : MonoBehaviour
 {
-    public List<string> allItems = new List<string>();
+    public List<ItemTemplate> allItems = new List<ItemTemplate>();
 
-    public List<string> shoppingList = new List<string>();
+    public List<ItemTemplate> shoppingList = new List<ItemTemplate>();
 
     public TMP_Text listText;
 
@@ -23,7 +23,7 @@ public class ListGenerator : MonoBehaviour
         for (int i = 0; i < itemCount; i++)
         {
             int randomIndex = Random.Range(0, allItems.Count);
-            string randomItem = allItems[randomIndex];
+            ItemTemplate randomItem = allItems[randomIndex];
 
             shoppingList.Add(randomItem);
         }
@@ -33,9 +33,9 @@ public class ListGenerator : MonoBehaviour
 
     void ShowShoppingList()
     {
-        Dictionary<string, int> itemCounts = new Dictionary<string, int>();
+        Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
 
-        foreach (string item in shoppingList)
+        foreach (ItemTemplate item in shoppingList)
         {
             if (itemCounts.ContainsKey(item))
                 itemCounts[item]++;
@@ -45,18 +45,23 @@ public class ListGenerator : MonoBehaviour
 
         string displayText = "Lista de compras:\n\n";
 
-        foreach (KeyValuePair<string, int> entry in itemCounts)
+        foreach (KeyValuePair<ItemTemplate, int> entry in itemCounts)
         {
             if (entry.Value > 1)
-                displayText += $"• {entry.Key} x{entry.Value}\n";
+                displayText += $"• {entry.Key.itemName} x{entry.Value}\n";
             else
-                displayText += $"• {entry.Key}\n";
+                displayText += $"• {entry.Key.itemName}\n";
         }
 
         if (listText != null)
         {
             listText.text = displayText;
         }
+    }
+
+    public bool IsItemInShoppingList(ItemTemplate itemTemplate)
+    {
+        return shoppingList.Contains(itemTemplate);
     }
 
 }
