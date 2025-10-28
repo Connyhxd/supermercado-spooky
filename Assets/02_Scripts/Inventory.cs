@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Item item = other.GetComponent<Item>();
-        if (item != null && item.itemTemplate && !itemsInCart.Contains(item.itemTemplate))
+        if (item != null && item.itemTemplate)
         {
             itemsInCart.Add(item.itemTemplate);
             CheckProgress();
@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Item item = other.GetComponent<Item>();
-        if (item != null && itemsInCart.Contains(item.itemTemplate))
+        if (item != null)
         {
             itemsInCart.Remove(item.itemTemplate);
             CheckProgress();
@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
         Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
 
         int total = 0;
-        string receipt = "BOLETA\n\n";
+        string receipt = "BOLETA\n";
 
         foreach (ItemTemplate item in itemsInCart)
         {
