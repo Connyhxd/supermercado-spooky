@@ -70,7 +70,7 @@ public class Inventory : MonoBehaviour
                 case "Vegetable":
                     break;
 
-                case "Lácteos":
+                case "Dairy":
                     break;
             }
             voucherString += itemsInCart[i].itemName + "-" + itemsInCart[i].itemType + "- $" + itemsInCart[i].itemPrice + "<br>";
