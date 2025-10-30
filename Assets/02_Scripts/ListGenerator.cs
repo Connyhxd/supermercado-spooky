@@ -43,7 +43,7 @@ public class ListGenerator : MonoBehaviour
                 itemCounts[item] = 1;
         }
 
-        string displayText = "Lista de compras:\n\n";
+        string displayText = "Lista de compras:\n";
 
         foreach (KeyValuePair<ItemTemplate, int> entry in itemCounts)
         {
