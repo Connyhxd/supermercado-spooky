@@ -27,6 +27,7 @@ public class NPC : MonoBehaviour
     [Header("onPlayer STATE")]
     [SerializeField] public float onPlayerDuration;
     [SerializeField] public float elpaseOnPlayerTime;
+    [SerializeField] public bool onPlayer;
 
     [Header("ANIMATIONS")]
     [SerializeField] public Animator anim;
@@ -47,33 +48,28 @@ public class NPC : MonoBehaviour
         {
             case ENEMY_STATE.Idle:
                 elapseIdleTime += Time.deltaTime;
-                anim.SetBool("isWalking", false);
                 if (elapseIdleTime >= idleTime)
                 {
                     elapseIdleTime = 0;
                     ChangeEnemyState(ENEMY_STATE.Walking);
-                    anim.SetBool("isWalking", true);
                 }
                 break;
 
             case ENEMY_STATE.Walking:
-                anim.SetBool("isWalking", true);
                 if (agent.remainingDistance <= agent.stoppingDistance)
                 {
                     ChangeEnemyState(ENEMY_STATE.Idle);
-                    anim.SetBool("isWalking", false);
                 }
                 break;
 
             case ENEMY_STATE.onPlayer:
                 elpaseOnPlayerTime += Time.deltaTime;
-             //   anim.SetBool("isWalking", false);
                 agent.isStopped = true;
                 if (elpaseOnPlayerTime >= onPlayerDuration)
                 {
-              //      anim.SetBool("isStunned", false);
                     agent.isStopped = false;
                     ChangeEnemyState(ENEMY_STATE.Walking);
+                    elpaseOnPlayerTime = 0;
                 }
                 break;
         }
@@ -87,6 +83,23 @@ public class NPC : MonoBehaviour
             case ENEMY_STATE.Walking:
                 agent.SetDestination(points[Random.Range(0, points.Length)].position);
                 break;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            onPlayer = true;
+            ChangeEnemyState(ENEMY_STATE.onPlayer);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            onPlayer = false;
         }
     }
 }

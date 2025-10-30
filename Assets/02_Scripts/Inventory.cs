@@ -11,6 +11,13 @@ public class Inventory : MonoBehaviour
 
     public TextMeshProUGUI boletaText;
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Boleta();
+        }    
+    }
     private void OnTriggerEnter(Collider other)
     {
         Item item = other.GetComponent<Item>();
@@ -18,7 +25,6 @@ public class Inventory : MonoBehaviour
         {
             itemsInCart.Add(item.itemTemplate);
             CheckProgress();
-            Boleta();
         }
     }
 
@@ -29,7 +35,6 @@ public class Inventory : MonoBehaviour
         {
             itemsInCart.Remove(item.itemTemplate);
             CheckProgress();
-            Boleta();
         }
     }
 
@@ -48,36 +53,68 @@ public class Inventory : MonoBehaviour
 
     void Boleta()
     {
+        string voucherString = string.Empty;
+        int totalCount = 0;
+        float totalDiscount = 0;
 
-        Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
+        voucherString += "-- BOLETA --<br>";
 
-        int total = 0;
-        string receipt = "BOLETA\n\n";
-
-        foreach (ItemTemplate item in itemsInCart)
+        for (int i = 0; i < itemsInCart.Count; i++)
         {
-            if (itemCounts.ContainsKey(item))
-                itemCounts[item]++;
-            else
-                itemCounts[item] = 1;
+            switch (itemsInCart[i].itemType)
+            {
+                case "Fruit":
+                    totalDiscount += itemsInCart[i].itemPrice * 0.5f;
+                    break;
+
+                case "Vegetable":
+                    break;
+            }
+            voucherString += itemsInCart[i].itemName + "-" + itemsInCart[i].itemType + "- $" + itemsInCart[i].itemPrice + "<br>";
+            totalCount += itemsInCart[i].itemPrice;
         }
 
-        foreach (KeyValuePair<ItemTemplate, int> kvp in itemCounts)
-        {
-            ItemTemplate item = kvp.Key;
-            int count = kvp.Value;
-            int subtotal = item.itemPrice * count;
+        voucherString += "-- TOTAL --<br>";
+        voucherString += totalCount;
+        voucherString += "<br>-- DESCUENTOS --<br>";
+        voucherString += totalDiscount;
+        voucherString += "<br>-- A PAGAR --<br>";
+        voucherString += "$" + (totalCount - totalDiscount).ToString();
 
-            receipt += item.itemName + " x" + count + " - $" + subtotal + "\n";
-            total += subtotal;
-        }
+      if (boletaText != null)
+       {
+         boletaText.text = voucherString;
+       }
 
-        receipt += "\nTOTAL: $" + total.ToString();
+        //Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
 
-        if (boletaText != null)
-        {
-            boletaText.text = receipt;
-        }
+        //int total = 0;
+        //string receipt = "BOLETA\n\n";
+
+        //foreach (ItemTemplate item in itemsInCart)
+        //{
+        //    if (itemCounts.ContainsKey(item))
+        //        itemCounts[item]++;
+        //    else
+        //        itemCounts[item] = 1;
+        //}
+
+        //foreach (KeyValuePair<ItemTemplate, int> kvp in itemCounts)
+        //{
+        //    ItemTemplate item = kvp.Key;
+        //    int count = kvp.Value;
+        //    int subtotal = item.itemPrice * count;
+
+        //    receipt += item.itemName + " x" + count + " - $" + subtotal + "\n";
+        //    total += subtotal;
+        //}
+
+        //receipt += "\nTOTAL: $" + total.ToString();
+
+        //if (boletaText != null)
+        //{
+        //    boletaText.text = receipt;
+        //}
 
     }
 
