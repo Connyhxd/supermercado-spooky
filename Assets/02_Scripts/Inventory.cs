@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             Boleta();
         }    
@@ -68,6 +68,9 @@ public class Inventory : MonoBehaviour
                     break;
 
                 case "Vegetable":
+                    break;
+
+                case "Lácteos":
                     break;
             }
             voucherString += itemsInCart[i].itemName + "-" + itemsInCart[i].itemType + "- $" + itemsInCart[i].itemPrice + "<br>";

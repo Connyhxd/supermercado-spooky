@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5517672037894858494}
   - component: {fileID: 4337655609632541186}
   - component: {fileID: 6035025192333314111}
-  - component: {fileID: -4305082353049708163}
+  - component: {fileID: 3857790245083008235}
+  - component: {fileID: 3327642455613414944}
   m_Layer: 0
   m_Name: bottle_yogurt_strawberry
   m_TagString: Untagged
@@ -59,6 +60,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,8 +88,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-4305082353049708163
-MeshCollider:
+--- !u!114 &3857790245083008235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047062781074783060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c83a53b18e65ac48b8fde819efbf218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTemplate: {fileID: 11400000, guid: 41687f1c832630f48a378d2d4f728e43, type: 2}
+--- !u!136 &3327642455613414944
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +119,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -127546859901851781, guid: b75d2c73ca1276e4dbaacfb18e1fdbcb, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.4430902
+  m_Height: 2.0035236
+  m_Direction: 1
+  m_Center: {x: -0.00000035762787, y: 0.82352054, z: 0.010249138}
