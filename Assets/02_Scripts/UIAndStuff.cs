@@ -1,4 +1,4 @@
-using UnityEditor.Experimental.GraphView;
+using TMPro;
 using UnityEngine;
 
 public class UIAndStuff : MonoBehaviour
@@ -9,6 +9,9 @@ public class UIAndStuff : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject pauseButton;
     bool isMenuOpen;
+
+    public TextMeshProUGUI funFactText;
+    private string[] halloweenFacts;
 
     bool listActive;
 
@@ -22,6 +25,10 @@ public class UIAndStuff : MonoBehaviour
                 listAnim.SetBool("PorQueNoEstaFuncionando", true);
                 listAnim.SetBool("ListaNoMove", false);
                 listActive = true;
+
+                int randomIndex = Random.Range(0, halloweenFacts.Length);
+                funFactText.text = halloweenFacts[randomIndex];
+
             }
             else
             {
