@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class ListGenerator : MonoBehaviour
 {
@@ -33,24 +34,12 @@ public class ListGenerator : MonoBehaviour
 
     void ShowShoppingList()
     {
-        Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
+        string displayText = null;
+
 
         foreach (ItemTemplate item in shoppingList)
         {
-            if (itemCounts.ContainsKey(item))
-                itemCounts[item]++;
-            else
-                itemCounts[item] = 1;
-        }
-
-        string displayText = "Lista de compras:\n";
-
-        foreach (KeyValuePair<ItemTemplate, int> entry in itemCounts)
-        {
-            if (entry.Value > 1)
-                displayText += $"• {entry.Key.itemName} x{entry.Value}\n";
-            else
-                displayText += $"• {entry.Key.itemName}\n";
+            displayText += "• " + item.itemName + "\n";
         }
 
         if (listText != null)

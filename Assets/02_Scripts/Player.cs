@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI objectNameText;
     public TextMeshProUGUI objectTypeText;
     public TextMeshProUGUI objectPriceText;
+    public GameObject infoBg;
 
     private void Awake()
     {
@@ -120,13 +121,15 @@ public class Player : MonoBehaviour
 
             objectNameText.text = item.itemTemplate.itemName;
             objectTypeText.text = item.itemTemplate.itemType;
-            objectPriceText.text = item.itemTemplate.itemPrice.ToString();
+            objectPriceText.text = "$" + item.itemTemplate.itemPrice.ToString();
+            infoBg.SetActive(true);
         }
         else
         {
             objectNameText.text = null;
             objectTypeText.text = null;
             objectPriceText.text = null;
+            infoBg.SetActive(false);
         }
     }
 
