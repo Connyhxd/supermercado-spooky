@@ -11,8 +11,8 @@ namespace Seagull.Interior_I1.SceneProps {
     }
     
     public class Rotatable : MonoBehaviour {
-        [SerializeField] private float startAngle;
-        [SerializeField] private float endAngle;
+        [SerializeField] public float startAngle;
+        [SerializeField] public float endAngle;
         [SerializeField] private Axis rotationAxis;
         
         [Range(0f, 1f)] public float rotation;
