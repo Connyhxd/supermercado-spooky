@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,12 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI objectTypeText;
     public TextMeshProUGUI objectPriceText;
     public GameObject infoBg;
+
+    [Header("OPEN DOORS")]
+    public GameObject nearNormalDoor;
+    public Animator openNormalDoor;
+    public bool nearNormal = false;
+    private bool doorIsOpen = false;
 
     private void Awake()
     {
@@ -54,6 +61,26 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             canJump = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+            nearNormalDoor = other.gameObject;
+            openNormalDoor = other.GetComponent<Animator>();
+            nearNormal = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+            nearNormalDoor = null;
+            openNormalDoor = null;
+            nearNormal = false;
         }
     }
 
@@ -90,6 +117,12 @@ public class Player : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && nearNormal == true)
+        {
+            doorIsOpen = !doorIsOpen;
+            openNormalDoor.SetBool("DoorOpen", doorIsOpen);
         }
     }
 
