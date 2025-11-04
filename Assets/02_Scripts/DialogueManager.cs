@@ -9,19 +9,31 @@ public class DialogueManager : MonoBehaviour
     public DialogueScriptable dialoguelol;
     public TextMeshProUGUI dialogueText, nameText;
     public Image spriteCharacter;
+    public GameObject UIDIALOGUE;
 
     [Header("SYSRTEM")]
     public bool isTalking;
     public int phaseIndex;
     public bool isTypeEnded;
-    public bool UIDialogue;
+    public bool canTalk;
+
+    private void Start()
+    {
+        canTalk = false;
+        UIDIALOGUE.SetActive(false);
+    }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if (canTalk == true)
         {
-            Talk();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Talk();
+            }
         }
+
+        UIDIALOGUE.SetActive(isTalking);
     }
 
     public void Talk()
@@ -46,11 +58,7 @@ public class DialogueManager : MonoBehaviour
             {
                 if (isTypeEnded)
                 {
-                    nameText.text = string.Empty;
-                    dialogueText.text += string.Empty;
-                    spriteCharacter.sprite = null;
-                    phaseIndex = 0;
-                    isTalking = false;
+                    EndDialogue();
                 }
                 else
                 {
@@ -62,8 +70,11 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Refresh();
-            isTalking = true;
+            if (dialoguelol != null)
+            {
+                Refresh();
+                isTalking = true;
+            }
         }
     }
 
@@ -85,4 +96,35 @@ public class DialogueManager : MonoBehaviour
         }
         isTypeEnded = true;
     }    
+
+    public void StartConversation(DialogueScriptable newDialogue)
+    {
+        if (isTalking)
+            return;
+
+        dialoguelol = newDialogue;
+        phaseIndex = 0;
+        isTalking = false;
+    }
+
+    public void CanTalk(bool state)
+    {
+        canTalk = state;
+
+        if (!state && isTalking)
+        {
+            EndDialogue();
+        }
+    }
+
+    public void EndDialogue()
+    {
+        StopAllCoroutines();
+        nameText.text = string.Empty;
+        dialogueText.text = string.Empty;
+        spriteCharacter.sprite = null;
+        phaseIndex = 0;
+        isTalking = false;
+        isTypeEnded = true;
+    }
 }

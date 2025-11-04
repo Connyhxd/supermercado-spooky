@@ -10,9 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 390204bd91aadf843ad78dd826e93abb, type: 3}
-  m_Name: IntroDialogue
+  m_Name: Initial Dialogue
   m_EditorClassIdentifier: 
-  dialogue:
-  - characterName: 
-    characterSprite: {fileID: 0}
-    phrase: 
+  dialogue: []

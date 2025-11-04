@@ -24,7 +24,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private float idleTime; //contener el random
     [SerializeField] public float elapseIdleTime;
 
-    [Header("onPlayer STATE")]
+    [Header("ON PLAYER STATE")]
     [SerializeField] public float onPlayerDuration;
     [SerializeField] public float elpaseOnPlayerTime;
     [SerializeField] public bool onPlayer;
@@ -32,9 +32,14 @@ public class NPC : MonoBehaviour
     [Header("ANIMATIONS")]
     [SerializeField] public Animator anim;
 
+    [Header("DIALOGUE")]
+    [SerializeField] private DialogueScriptable npcDialogueData;
+    [SerializeField] private DialogueManager dialogueManager;
+
     private void Awake()
     {
         agent = GetComponentInChildren<NavMeshAgent>();
+        dialogueManager = FindAnyObjectByType<DialogueManager>();
     }
 
     private void Start()
@@ -93,6 +98,12 @@ public class NPC : MonoBehaviour
             onPlayer = true;
             ChangeEnemyState(ENEMY_STATE.onPlayer);
         }
+
+        if (other.CompareTag("Player") && dialogueManager != null)
+        {
+            dialogueManager.StartConversation(npcDialogueData);
+            dialogueManager.CanTalk(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -100,6 +111,11 @@ public class NPC : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             onPlayer = false;
+        }
+
+        if (other.CompareTag("Player") && dialogueManager != null)
+        {
+            dialogueManager.CanTalk(false);
         }
     }
 }
