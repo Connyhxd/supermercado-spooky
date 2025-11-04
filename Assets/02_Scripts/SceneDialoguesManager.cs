@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneDialoguesManager : MonoBehaviour
@@ -91,11 +92,10 @@ public class SceneDialoguesManager : MonoBehaviour
     public void EndDialogue()
     {
         StopAllCoroutines();
-        nameText.text = string.Empty;
-        dialogueText.text = string.Empty;
-        spriteCharacter.sprite = null;
-        phraseIndex = 0;
+
         isTalking = false;
         isTypeWriterEnded = true;
+
+        SceneManager.LoadScene("Test");
     }
 }
