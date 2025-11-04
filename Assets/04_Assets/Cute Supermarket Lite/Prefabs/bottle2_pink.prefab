@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2304520592789488298}
   - component: {fileID: 4857488270966687784}
   - component: {fileID: 7665304636120037186}
+  - component: {fileID: 4840124283989001491}
   m_Layer: 0
   m_Name: bottle2_pink
   m_TagString: Untagged
@@ -138,3 +139,16 @@ CapsuleCollider:
   m_Height: 1.8534695
   m_Direction: 1
   m_Center: {x: 0, y: 0.92673475, z: 0.00000047683716}
+--- !u!114 &4840124283989001491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331670522597842040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c83a53b18e65ac48b8fde819efbf218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTemplate: {fileID: 11400000, guid: e96032849eaafe240b23ddf5ed151b24, type: 2}

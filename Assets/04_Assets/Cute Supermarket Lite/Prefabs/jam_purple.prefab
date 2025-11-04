@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8154153785868156573}
   - component: {fileID: 8081825986249172541}
   - component: {fileID: 886655551344383642}
+  - component: {fileID: 5304106558134152285}
   - component: {fileID: 8587130195310142553}
   m_Layer: 0
   m_Name: jam_purple
@@ -115,6 +116,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &5304106558134152285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008468578534030988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c83a53b18e65ac48b8fde819efbf218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTemplate: {fileID: 11400000, guid: 1f38218677fad594685fc98157aa57f2, type: 2}
 --- !u!136 &8587130195310142553
 CapsuleCollider:
   m_ObjectHideFlags: 0

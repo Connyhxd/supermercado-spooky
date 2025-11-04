@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3945047380100862523}
   - component: {fileID: 6811123856920503945}
   - component: {fileID: 5971607924068928301}
-  - component: {fileID: 3162405250281592376}
+  - component: {fileID: 4633225032645515190}
+  - component: {fileID: 1800376933991663176}
   m_Layer: 0
   m_Name: can_food_small_brown
   m_TagString: Untagged
@@ -115,8 +116,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &3162405250281592376
-CapsuleCollider:
+--- !u!65 &4633225032645515190
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,8 +134,19 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.54407203
-  m_Height: 0.31527427
-  m_Direction: 1
+  serializedVersion: 3
+  m_Size: {x: 1.039315, y: 0.31527427, z: 1.0881441}
   m_Center: {x: 0, y: 0.16048793, z: 0}
+--- !u!114 &1800376933991663176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693796132314117409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c83a53b18e65ac48b8fde819efbf218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTemplate: {fileID: 11400000, guid: b403a3ef80f7ae644b7860e47c239f46, type: 2}

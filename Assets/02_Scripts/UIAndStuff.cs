@@ -26,8 +26,6 @@ public class UIAndStuff : MonoBehaviour
                 listAnim.SetBool("ListaNoMove", false);
                 listActive = true;
 
-                int randomIndex = Random.Range(0, halloweenFacts.Length);
-                funFactText.text = halloweenFacts[randomIndex];
 
             }
             else
@@ -58,6 +56,9 @@ public class UIAndStuff : MonoBehaviour
             Time.timeScale = 0f;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            //  int randomIndex = Random.Range(0, halloweenFacts.Length);
+            //  funFactText.text = halloweenFacts[randomIndex];
         }
         else
         {

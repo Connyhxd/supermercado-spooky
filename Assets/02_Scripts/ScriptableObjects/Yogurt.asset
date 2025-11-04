@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Yogurt
   m_EditorClassIdentifier: 
   itemName: Yogurt
-  itemType: "L\xE1cteos"
+  itemType: Dairy
   itemPrice: 100
