@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 390204bd91aadf843ad78dd826e93abb, type: 3}
-  m_Name: Initial Dialogue
+  m_Name: 2dialogo
   m_EditorClassIdentifier: 
   dialogue:
-  - characterName: :3
-    characterSprite: {fileID: 21300000, guid: 8e9a922627bcfe8408257d8c91f2c31d, type: 3}
-    phrase: Olaaa
-  - characterName: :3
-    characterSprite: {fileID: 21300000, guid: 8e9a922627bcfe8408257d8c91f2c31d, type: 3}
-    phrase: Jijijijaaa
+  - characterName: aaa
+    characterSprite: {fileID: 21300000, guid: e9526110b1a2f31448dd7f737580dffd, type: 3}
+    phrase: lol
+  - characterName: aaa
+    characterSprite: {fileID: 21300000, guid: e9526110b1a2f31448dd7f737580dffd, type: 3}
+    phrase: :3

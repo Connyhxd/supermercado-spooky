@@ -33,6 +33,10 @@ public class Player : MonoBehaviour
     public bool nearNormal = false;
     private bool doorIsOpen = false;
 
+    [Header("DIALOGUE")]
+    [SerializeField] public DialogueManager dialoguee;
+    [SerializeField] public RigidbodyConstraints ogRb;
+
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -40,10 +44,21 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>().transform;
         movementSpeed = walkSpeed;
+        ogRb = rb.constraints;
     }
 
     private void Update()
     {
+        if (dialoguee.isTalking)
+        {
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            return;
+        }
+        else
+        {
+            rb.constraints = ogRb;
+        }
+
         Movement();
         Raycast();
     }

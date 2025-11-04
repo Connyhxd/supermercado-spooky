@@ -49,7 +49,20 @@ public class NPC : MonoBehaviour
 
     private void Update()
     {
-        switch (currentState)
+        if (dialogueManager != null && dialogueManager.isTalking)
+        {
+            if (agent.isStopped == false)
+            {
+                agent.isStopped = true;
+            }
+            return;
+        }
+        if (agent.isStopped == true && dialogueManager != null && !dialogueManager.isTalking)
+        {
+            agent.isStopped = false;
+        }
+
+            switch (currentState)
         {
             case ENEMY_STATE.Idle:
                 elapseIdleTime += Time.deltaTime;
