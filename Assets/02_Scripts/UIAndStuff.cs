@@ -11,7 +11,7 @@ public class UIAndStuff : MonoBehaviour
     bool isMenuOpen;
 
     public TextMeshProUGUI funFactText;
-    private string[] halloweenFacts;
+    public string[] halloweenFacts;
 
     bool listActive;
 
@@ -57,8 +57,9 @@ public class UIAndStuff : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
-            //  int randomIndex = Random.Range(0, halloweenFacts.Length);
-            //  funFactText.text = halloweenFacts[randomIndex];
+            int randomIndex = Random.Range(0, halloweenFacts.Length);
+            funFactText.text = halloweenFacts[randomIndex];
+
         }
         else
         {
