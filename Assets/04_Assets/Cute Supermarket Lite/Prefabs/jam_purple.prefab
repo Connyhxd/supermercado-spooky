@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8105718047416711418}
   - component: {fileID: 8154153785868156573}
   - component: {fileID: 8081825986249172541}
-  - component: {fileID: 4970573315156869334}
+  - component: {fileID: 886655551344383642}
+  - component: {fileID: 8587130195310142553}
   m_Layer: 0
   m_Name: jam_purple
   m_TagString: Untagged
@@ -87,8 +88,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4970573315156869334
-MeshCollider:
+--- !u!54 &886655551344383642
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4008468578534030988}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &8587130195310142553
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +133,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1669673220488350880, guid: f1989815af844e444b61e5d85194430e, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.39118305
+  m_Height: 0.61617976
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.30808988, z: 0}
