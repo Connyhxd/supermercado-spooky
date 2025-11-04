@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
   - characterName: Larry
-    characterSprite: {fileID: 0}
-    phrase: Hola soy larry
+    characterSprite: {fileID: 21300000, guid: 301843ae76d9b0b408ba0c7f88555388, type: 3}
+    phrase: This place sucks!
+  - characterName: Larry
+    characterSprite: {fileID: 21300000, guid: 301843ae76d9b0b408ba0c7f88555388, type: 3}
+    phrase: Nobody cleans or tidies this place?!
