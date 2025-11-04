@@ -664,14 +664,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f260b767acd761249b17c04b10c32ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguelol: {fileID: 0}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  spriteCharacter: {fileID: 0}
+  dialoguelol: {fileID: 11400000, guid: 93326831ae83ff643993b719a0721a29, type: 2}
+  dialogueText: {fileID: 1437546995}
+  nameText: {fileID: 39917624}
+  spriteCharacter: {fileID: 953110345}
+  UIDIALOGUE: {fileID: 0}
   isTalking: 0
   phaseIndex: 0
   isTypeEnded: 0
-  UIDialogue: 0
+  canTalk: 0
 --- !u!4 &669402558
 Transform:
   m_ObjectHideFlags: 0
@@ -699,7 +700,7 @@ GameObject:
   - component: {fileID: 953110346}
   - component: {fileID: 953110345}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Spritebox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

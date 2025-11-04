@@ -12,4 +12,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390204bd91aadf843ad78dd826e93abb, type: 3}
   m_Name: IntroDialogue
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Tonight, the Halloween night ritual will be performed.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: As you may know, this occasion only happens once a year, where the stars
+      align perfectly for this ancient magician tradition.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Truly, an unmissable event. What do you think, my apprentice?
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: Oooh, I'm sure it will be a succes!
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: The outcome of this event will also define your future as a magician,
+      and whether you are worthy of graduating from the Magic School.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: e9526110b1a2f31448dd7f737580dffd, type: 3}
+    phrase: I'm so excited!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: I won't disappoint you!
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Excellent. Now, she should start with the preparations.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Please, bring the ingredients from the supply chest.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: Yup!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: ...
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: Um, Sir Mage?
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Yes?
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: There's nothing in the chest.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 625be1a9d4687864b8286052039355cf, type: 3}
+    phrase: Nothing!?
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: Nothing at all!!! Only dust, and I doubt that could be useful!!!
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 625be1a9d4687864b8286052039355cf, type: 3}
+    phrase: (Sigh...)
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Then, your role today will have to change a little.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Now, I will assign you an equally important mission, which puts the success
+      or failure of tonight's ritual in your hands.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: (Now that makes me feel more nervous!)
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Your mission will be to go to the supermarket and bring me the objects
+      that I will write in a list.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: Oh, so I have to go shopping?
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: And the faster, the better! Ideally, you should return before nightfall...
+      Or the ritual might fail.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: I count on you, my disciple. Now go!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: (Sir Mage handles me the list, and so I hurry to the door... and to the
+      supermarket.)
