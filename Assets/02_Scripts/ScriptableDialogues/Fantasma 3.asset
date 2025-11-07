@@ -12,4 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390204bd91aadf843ad78dd826e93abb, type: 3}
   m_Name: Fantasma 3
   m_EditorClassIdentifier: 
-  dialogue: []
+  dialogue:
+  - characterName: Sku
+    characterSprite: {fileID: 21300000, guid: 918c00806d7aa60429e07d12a9397f37, type: 3}
+    phrase: Did you know Louise is in love with her best friend, but he doesn't feel
+      the same?
+  - characterName: Sku
+    characterSprite: {fileID: 21300000, guid: 918c00806d7aa60429e07d12a9397f37, type: 3}
+    phrase: He just keeps her around like a toy 'cause she doesn't know what 'puppy
+      love' is.
+  - characterName: Sku
+    characterSprite: {fileID: 21300000, guid: 918c00806d7aa60429e07d12a9397f37, type: 3}
+    phrase: Oh, right, you don't know Louise, haha. My baaad.
+  - characterName: Sku
+    characterSprite: {fileID: 21300000, guid: 918c00806d7aa60429e07d12a9397f37, type: 3}
+    phrase: Red donuts are 40% off! Just so you know!
+  - characterName: Sku
+    characterSprite: {fileID: 21300000, guid: 918c00806d7aa60429e07d12a9397f37, type: 3}
+    phrase: Gotta run!
