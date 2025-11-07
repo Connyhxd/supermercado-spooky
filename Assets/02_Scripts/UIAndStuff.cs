@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class UIAndStuff : MonoBehaviour
 {
+    public AudioManager audioji;
+
     public Animator listAnim;
     public GameObject listObj;
 
@@ -25,6 +27,8 @@ public class UIAndStuff : MonoBehaviour
                 listAnim.SetBool("PorQueNoEstaFuncionando", true);
                 listAnim.SetBool("ListaNoMove", false);
                 listActive = true;
+                audioji.sfxSound.resource = audioji.listOpenSound;
+                audioji.sfxSound.Play();
 
 
             }
@@ -34,6 +38,8 @@ public class UIAndStuff : MonoBehaviour
                 listAnim.SetBool("ListaNoMove", true);
                 listAnim.SetBool("PorQueNoEstaFuncionando", false);
                 listActive = false;
+                audioji.sfxSound.resource = audioji.listCloseSound;
+                audioji.sfxSound.Play();
             }
         }
 
@@ -60,6 +66,9 @@ public class UIAndStuff : MonoBehaviour
             int randomIndex = Random.Range(0, halloweenFacts.Length);
             funFactText.text = halloweenFacts[randomIndex];
 
+            audioji.sfxSound.resource = audioji.pauseOpenSound;
+            audioji.sfxSound.Play();
+
         }
         else
         {
@@ -68,6 +77,8 @@ public class UIAndStuff : MonoBehaviour
             Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            audioji.sfxSound.resource = audioji.pauseCloseSound;
+            audioji.sfxSound.Play();
         }
     }
 }

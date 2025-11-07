@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    public AudioManager audioji;
+
     [Header("CONVERSATION")]
     public DialogueScriptable dialoguelol;
     public TextMeshProUGUI dialogueText, nameText;
@@ -30,6 +32,8 @@ public class DialogueManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Talk();
+                audioji.sfxSound.resource = audioji.dialogueStartSound;
+                audioji.sfxSound.Play();
             }
         }
 
@@ -59,6 +63,8 @@ public class DialogueManager : MonoBehaviour
                 if (isTypeEnded)
                 {
                     EndDialogue();
+                    audioji.sfxSound.resource = audioji.dialogueEndSound;
+                    audioji.sfxSound.Play();
                 }
                 else
                 {
@@ -74,6 +80,7 @@ public class DialogueManager : MonoBehaviour
             {
                 Refresh();
                 isTalking = true;
+                
             }
         }
     }

@@ -4,16 +4,14 @@ using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
+    public AudioManager audioji;
+
     [Header("MOVEMENT")]
     [SerializeField] public Transform cam;
     [SerializeField] public float movementSpeed, walkSpeed, runSpeed;
     [SerializeField] public float mouseSpeed;
     [SerializeField] public float horizontalRotation, verticalRotation;
-
-    [Header("JUMP")]
     [SerializeField] public Rigidbody rb;
-    [SerializeField] public float jumpForce;
-    [SerializeField] public bool canJump = true;
 
     [Header("RAYCAST")]
     public float rayDistance = 3f;
@@ -66,22 +64,6 @@ public class Player : MonoBehaviour
 
         Movement();
         Raycast();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            canJump = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            canJump = false;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -156,14 +138,6 @@ public class Player : MonoBehaviour
             movementSpeed = walkSpeed;
         }
 
-        if (canJump == true)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.E) && nearNormal == true)
         {
             doorIsOpen = !doorIsOpen;
@@ -189,6 +163,8 @@ public class Player : MonoBehaviour
                 if (isHittingItem)
                 {
                     PickItem(hit.transform);
+                    audioji.sfxSound.resource = audioji.pickupSound;
+                    audioji.sfxSound.Play();
                 }
             }
         }
