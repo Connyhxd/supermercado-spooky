@@ -32,8 +32,6 @@ public class DialogueManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Talk();
-                audioji.sfxSound.resource = audioji.dialogueStartSound;
-                audioji.sfxSound.Play();
             }
         }
 
@@ -80,7 +78,8 @@ public class DialogueManager : MonoBehaviour
             {
                 Refresh();
                 isTalking = true;
-                
+                audioji.sfxSound.resource = audioji.dialogueStartSound;
+                audioji.sfxSound.Play();
             }
         }
     }
