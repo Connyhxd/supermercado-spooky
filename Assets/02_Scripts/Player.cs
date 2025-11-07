@@ -27,6 +27,11 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI objectPriceText;
     public GameObject infoBg;
 
+    [Header("UI INTERACTION")]
+    public GameObject interactPromptUI;
+    private bool nearNPC = false;
+    private NPC nearbyNPC;
+
     [Header("OPEN DOORS")]
     public GameObject nearNormalDoor;
     public Animator openNormalDoor;
@@ -86,6 +91,17 @@ public class Player : MonoBehaviour
             nearNormalDoor = other.gameObject;
             openNormalDoor = other.GetComponent<Animator>();
             nearNormal = true;
+            interactPromptUI.SetActive(true);
+        }
+
+        if (other.CompareTag("NPC"))
+        {
+            nearbyNPC = other.GetComponent<NPC>();
+            if (nearbyNPC != null)
+            {
+                nearNPC = true;
+                interactPromptUI.SetActive(true);
+            }
         }
     }
 
@@ -96,6 +112,20 @@ public class Player : MonoBehaviour
             nearNormalDoor = null;
             openNormalDoor = null;
             nearNormal = false;
+            if (!nearNPC)
+            {
+                interactPromptUI.SetActive(false);
+            }
+        }
+
+        if (other.CompareTag("NPC"))
+        {
+            nearNPC = false;
+            nearbyNPC = null;
+            if (!nearNormal)
+            {
+                interactPromptUI.SetActive(false);
+            }
         }
     }
 
@@ -171,6 +201,10 @@ public class Player : MonoBehaviour
             objectTypeText.text = item.itemTemplate.itemType;
             objectPriceText.text = "$" + item.itemTemplate.itemPrice.ToString();
             infoBg.SetActive(true);
+            if (interactPromptUI != null && !nearNormal && !nearNPC)
+            {
+                interactPromptUI.SetActive(true);
+            }
         }
         else
         {
@@ -178,6 +212,10 @@ public class Player : MonoBehaviour
             objectTypeText.text = null;
             objectPriceText.text = null;
             infoBg.SetActive(false);
+            if (interactPromptUI != null && !nearNormal && !nearNPC)
+            {
+                interactPromptUI.SetActive(false);
+            }
         }
     }
 
