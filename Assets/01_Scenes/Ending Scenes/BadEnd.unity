@@ -950,7 +950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e843536e69c5a40bb92e1d26486c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: c19c4187190fbc549bb31ff7dd35c643, type: 2}
+  dialogue: {fileID: 11400000, guid: 047dc61a4e9bd8845842df007d6b059a, type: 2}
   dialogueText: {fileID: 1933770210}
   nameText: {fileID: 164835115}
   spriteCharacter: {fileID: 787201792}

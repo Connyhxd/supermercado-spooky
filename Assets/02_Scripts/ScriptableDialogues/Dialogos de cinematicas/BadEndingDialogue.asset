@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390204bd91aadf843ad78dd826e93abb, type: 3}
+  m_Name: BadEndingDialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: I'm back!!!
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Finally...
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: I was beginning to believe that you would not return.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: Huh? Why would you believe that!?
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: Anyway...
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: Here's everything.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
+    phrase: (I put the shopping bag on the table and take out the receipt.)
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: e9526110b1a2f31448dd7f737580dffd, type: 3}
+    phrase: Aaaand here's the receipt! Check it out.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Let me see...
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: ...
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: (Reading.)
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Hm...
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: Is this a joke?
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: Eh?
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: This is not what we need for the ritual!
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: I even gave you a list so you would remember everything!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: (I messed up bad!!!)
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: The ritual cannot be performed without the items that I asked for.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: O-Oh, no... That's bad.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: Bad!? It is terrible!!!
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: For the first time in years, the ritual will have to be cancelled!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: Cancelled!? Isn't that a little bit TOO extreme!?
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: 0929477e512727048ba2bd50fbc3e6a1, type: 3}
+    phrase: It is! So you can see how serious the situation is!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: W-Waaah! I'm really really so sorry!
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: Uh, I still could go and get the missing items though.
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: No, there is no time now.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: I feel so guilty now...
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: You should. You should feel ashamed too, because now you will not graduate.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: EXCUSE ME WHAT!?!?!?!?
+  - characterName: Mage
+    characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
+    phrase: Yes, what you heard. You will not graduate. This mistake is too big to
+      let it pass, so you are not worthy as magician.
+  - characterName: Batya
+    characterSprite: {fileID: 21300000, guid: 32d640ac60eaccc40a8dbdef307c13dd, type: 3}
+    phrase: NOOOOOOOO!!!!!
+  - characterName: Narrator
+    characterSprite: {fileID: 21300000, guid: 76801692d755ad84e9849104beff911c, type: 3}
+    phrase: And so, Batya didn't graduate from Magic School. And now, her classmates
+      will mock her for many years more. And she will be very sad. Forever.
+  - characterName: Narrator
+    characterSprite: {fileID: 21300000, guid: 76801692d755ad84e9849104beff911c, type: 3}
+    phrase: BAD ENDING
