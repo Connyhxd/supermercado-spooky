@@ -8,6 +8,8 @@ TagManager:
   - Item
   - Door
   - NPC
+  - Checkout
+  - FinalCheck
   layers:
   - Default
   - TransparentFX
