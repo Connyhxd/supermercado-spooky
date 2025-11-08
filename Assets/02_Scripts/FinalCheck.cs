@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinalCheck : MonoBehaviour
 {
@@ -64,10 +65,12 @@ public class FinalCheck : MonoBehaviour
             if (cartInventory.lastPurchaseCorrect)
             {
                 Debug.Log("Compra Correcta");
+                SceneManager.LoadScene("GoodEnd");
             }
             else
             {
                 Debug.Log("Compra Incorrecta");
+                SceneManager.LoadScene("BadEnd");
             }
         }
         else
