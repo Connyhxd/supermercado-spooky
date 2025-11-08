@@ -5,90 +5,168 @@ using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
+    public AudioManager audioji;
     public List<ItemTemplate> itemsInCart = new List<ItemTemplate>();
 
     public ListGenerator listGenerator;
 
     public TextMeshProUGUI boletaText;
 
+    [HideInInspector] public bool lastPurchaseCorrect = false;
+    [HideInInspector] public bool purchaseMade = false;
+
+    public bool canCheckout = false;
+    public GameObject checkoutUIPrompt;
+
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        bool showCheckoutUI = canCheckout && !purchaseMade;
+        if (checkoutUIPrompt != null)
+        {
+            checkoutUIPrompt.SetActive(showCheckoutUI);
+        }
+
+        if (canCheckout && Input.GetKeyDown(KeyCode.Q))
         {
             Boleta();
-        }    
+            purchaseMade = true;
+            if (checkoutUIPrompt != null) checkoutUIPrompt.SetActive(false);
+            audioji.sfxSound.resource = audioji.buySound;
+            audioji.sfxSound.Play();
+        }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         Item item = other.GetComponent<Item>();
-        if (item != null && item.itemTemplate && !itemsInCart.Contains(item.itemTemplate))
+        if (item != null && item.itemTemplate)
         {
             itemsInCart.Add(item.itemTemplate);
-            CheckProgress();
+            Debug.Log($"Item agregado: {item.itemTemplate.itemName}");
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            canCheckout = true;
+            if (checkoutUIPrompt != null) checkoutUIPrompt.SetActive(true);
+
+            Debug.Log("ola");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         Item item = other.GetComponent<Item>();
-        if (item != null && itemsInCart.Contains(item.itemTemplate))
+        if (item != null)
         {
             itemsInCart.Remove(item.itemTemplate);
-            CheckProgress();
+            Debug.Log($"Item quitado: {item.itemTemplate.itemName}");
         }
-    }
-
-    void CheckProgress()
-    {
-        int correctItems = 0;
-
-        foreach (ItemTemplate item in itemsInCart)
+        if (other.CompareTag("Player"))
         {
-            if (listGenerator.IsItemInShoppingList(item))
-            {
-                correctItems++;
-            }
+            canCheckout = false;
+            if (checkoutUIPrompt != null) checkoutUIPrompt.SetActive(false);
         }
     }
-
-    void Boleta()
+    public void Boleta()
     {
         string voucherString = string.Empty;
-        int totalCount = 0;
-        float totalDiscount = 0;
+        float subtotalSinDescuento = 0f;
+        float totalDescuentoAplicado = 0f;
 
-        voucherString += "-- BOLETA --\n\n";
-
-        for (int i = 0; i < itemsInCart.Count; i++)
+        Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
+        foreach (ItemTemplate item in itemsInCart)
         {
-            switch (itemsInCart[i].itemType)
+            if (itemCounts.ContainsKey(item)) itemCounts[item]++;
+            else itemCounts.Add(item, 1);
+        }
+        voucherString += "--- **BOLETA** ---\n\n";
+
+        foreach (var kvp in itemCounts)
+        {
+            ItemTemplate item = kvp.Key;
+            int count = kvp.Value;
+            float itemPrice = item.itemPrice;
+            float totalItemPrice = itemPrice * count;
+            float currentDiscount = 0f;
+
+            switch (item.itemName)
             {
-                case "Fruit":
-                    totalDiscount += itemsInCart[i].itemPrice * 0.5f;
+                case "Red Donut":
+                    currentDiscount = totalItemPrice * 0.40f;
+                    break;
+                case "Red Apple":
+                    currentDiscount = totalItemPrice * 0.50f;
                     break;
 
-                case "Vegetable":
-                    break;
-
-                case "Dairy":
+                case "Roll Toilet":
+                    currentDiscount = totalItemPrice * 0.25f;
                     break;
             }
-            voucherString += itemsInCart[i].itemName + "-" + itemsInCart[i].itemType + "- $" + itemsInCart[i].itemPrice + "<br>";
-            totalCount += itemsInCart[i].itemPrice;
+
+            subtotalSinDescuento += totalItemPrice;
+            totalDescuentoAplicado += currentDiscount;
+
+            string itemDetails = $"{item.itemName} x{count} ({item.itemType}) - Subtotal: ${totalItemPrice:F2}";
+            if (currentDiscount > 0)
+            {
+                itemDetails += $" (Desc. -${currentDiscount:F2})";
+            }
+            voucherString += itemDetails + "\n";
         }
 
-        voucherString += "\n-- TOTAL --\n";
-        voucherString += totalCount;
-        voucherString += "\n-- DESCUENTOS --\n";
-        voucherString += totalDiscount;
-        voucherString += "\n-- A PAGAR --\n";
-        voucherString += "$" + (totalCount - totalDiscount).ToString();
+        float totalAPagar = subtotalSinDescuento - totalDescuentoAplicado;
+        voucherString += "\n---------------------------\n";
+        voucherString += $"**SUBTOTAL (Sin Desc.):** **${subtotalSinDescuento:F2}**\n";
+        voucherString += $"**DESCUENTOS APLICADOS:** **-${totalDescuentoAplicado:F2}**\n";
+        voucherString += "\n---------------------------\n";
+        voucherString += $"**TOTAL FINAL A PAGAR:** **${totalAPagar:F2}**\n";
+        if (boletaText != null)
+        {
+            boletaText.text = voucherString;
+            boletaText.gameObject.SetActive(true);
+        }
 
-      if (boletaText != null)
-       {
-         boletaText.text = voucherString;
-       }
-
+        lastPurchaseCorrect = VerifyShopping();
     }
 
+    public bool VerifyShopping()
+    {
+        List<ItemTemplate> requiredList = listGenerator.shoppingList;
+        List<ItemTemplate> purchasedList = itemsInCart;
+
+        if (purchasedList.Count != requiredList.Count)
+            return false;
+
+        Dictionary<ItemTemplate, int> requiredCounts = new Dictionary<ItemTemplate, int>();
+        foreach (ItemTemplate item in requiredList)
+        {
+            if (requiredCounts.ContainsKey(item)) requiredCounts[item]++;
+            else requiredCounts.Add(item, 1);
+        }
+
+        Dictionary<ItemTemplate, int> purchasedCounts = new Dictionary<ItemTemplate, int>();
+        foreach (ItemTemplate item in purchasedList)
+        {
+            if (purchasedCounts.ContainsKey(item)) purchasedCounts[item]++;
+            else purchasedCounts.Add(item, 1);
+        }
+
+        if (requiredCounts.Count != purchasedCounts.Count) return false;
+
+        foreach (var requiredKvp in requiredCounts)
+        {
+            ItemTemplate item = requiredKvp.Key;
+            int requiredCount = requiredKvp.Value;
+
+            if (!purchasedCounts.TryGetValue(item, out int purchasedCount) || purchasedCount != requiredCount)
+            {
+                return
+                    false;
+            }
+        }
+
+        return
+            true;
+    }
 }

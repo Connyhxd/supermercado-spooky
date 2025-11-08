@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     public AudioManager audioji;
+    public Inventory inventory;
 
     [Header("MOVEMENT")]
     [SerializeField] public Transform cam;
@@ -64,6 +65,13 @@ public class Player : MonoBehaviour
 
         Movement();
         Raycast();
+
+        if (inventory.canCheckout && Input.GetKeyDown(KeyCode.Q))
+        {
+            inventory.Boleta();
+            inventory.purchaseMade = true;
+            if (inventory.checkoutUIPrompt != null) inventory.checkoutUIPrompt.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
