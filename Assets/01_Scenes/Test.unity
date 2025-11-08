@@ -12503,7 +12503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LISTA (L)
+  m_text: LIST (L)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -28335,6 +28335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1262338233}
     m_Modifications:
+    - target: {fileID: 92975557701644287, guid: dbb61a7156295ae4eba7dbc0108186e9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4919600064163107117, guid: dbb61a7156295ae4eba7dbc0108186e9, type: 3}
       propertyPath: m_Name
       value: cart_orange

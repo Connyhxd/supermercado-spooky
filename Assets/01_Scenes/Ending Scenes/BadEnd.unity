@@ -956,6 +956,7 @@ MonoBehaviour:
   spriteCharacter: {fileID: 787201792}
   isTalking: 0
   phraseIndex: 0
+  currentScene: BadEnd
   isTypeWriterEnded: 0
 --- !u!4 &1093724593
 Transform:

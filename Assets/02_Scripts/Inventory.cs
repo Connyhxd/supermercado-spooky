@@ -57,7 +57,7 @@ public class Inventory : MonoBehaviour
         int totalCount = 0;
         float totalDiscount = 0;
 
-        voucherString += "-- BOLETA --<br>";
+        voucherString += "-- BOLETA --\n\n";
 
         for (int i = 0; i < itemsInCart.Count; i++)
         {
@@ -77,47 +77,17 @@ public class Inventory : MonoBehaviour
             totalCount += itemsInCart[i].itemPrice;
         }
 
-        voucherString += "-- TOTAL --<br>";
+        voucherString += "\n-- TOTAL --\n";
         voucherString += totalCount;
-        voucherString += "<br>-- DESCUENTOS --<br>";
+        voucherString += "\n-- DESCUENTOS --\n";
         voucherString += totalDiscount;
-        voucherString += "<br>-- A PAGAR --<br>";
+        voucherString += "\n-- A PAGAR --\n";
         voucherString += "$" + (totalCount - totalDiscount).ToString();
 
       if (boletaText != null)
        {
          boletaText.text = voucherString;
        }
-
-        //Dictionary<ItemTemplate, int> itemCounts = new Dictionary<ItemTemplate, int>();
-
-        //int total = 0;
-        //string receipt = "BOLETA\n\n";
-
-        //foreach (ItemTemplate item in itemsInCart)
-        //{
-        //    if (itemCounts.ContainsKey(item))
-        //        itemCounts[item]++;
-        //    else
-        //        itemCounts[item] = 1;
-        //}
-
-        //foreach (KeyValuePair<ItemTemplate, int> kvp in itemCounts)
-        //{
-        //    ItemTemplate item = kvp.Key;
-        //    int count = kvp.Value;
-        //    int subtotal = item.itemPrice * count;
-
-        //    receipt += item.itemName + " x" + count + " - $" + subtotal + "\n";
-        //    total += subtotal;
-        //}
-
-        //receipt += "\nTOTAL: $" + total.ToString();
-
-        //if (boletaText != null)
-        //{
-        //    boletaText.text = receipt;
-        //}
 
     }
 

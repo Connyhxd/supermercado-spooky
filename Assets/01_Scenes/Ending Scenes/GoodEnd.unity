@@ -977,6 +977,7 @@ MonoBehaviour:
   spriteCharacter: {fileID: 1031882141}
   isTalking: 0
   phraseIndex: 0
+  currentScene: GoodEnd
   isTypeWriterEnded: 0
 --- !u!4 &1466811716
 Transform:

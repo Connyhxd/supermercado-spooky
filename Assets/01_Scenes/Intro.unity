@@ -685,6 +685,7 @@ MonoBehaviour:
   spriteCharacter: {fileID: 953110345}
   isTalking: 0
   phraseIndex: 0
+  currentScene: Intro
   isTypeWriterEnded: 0
 --- !u!1 &953110343
 GameObject:

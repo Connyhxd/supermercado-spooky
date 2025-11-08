@@ -13,6 +13,8 @@ public class SceneDialoguesManager : MonoBehaviour
     public bool isTalking;
     public int phraseIndex;
 
+    public string currentScene;
+
     public bool isTypeWriterEnded;
 
     private void Start()
@@ -96,6 +98,20 @@ public class SceneDialoguesManager : MonoBehaviour
         isTalking = false;
         isTypeWriterEnded = true;
 
-        SceneManager.LoadScene("Test");
+        if (currentScene == "Intro")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            SceneManager.LoadScene("Test");
+        }
+        else if (currentScene == "BadEnd")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("MainMenu");
+        }
+        else if (currentScene == "GoodEnd")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
