@@ -972,9 +972,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 93326831ae83ff643993b719a0721a29, type: 2}
-  dialogueText: {fileID: 0}
-  nameText: {fileID: 0}
-  spriteCharacter: {fileID: 0}
+  dialogueText: {fileID: 540109497}
+  nameText: {fileID: 498679372}
+  spriteCharacter: {fileID: 1031882141}
   isTalking: 0
   phraseIndex: 0
   isTypeWriterEnded: 0
