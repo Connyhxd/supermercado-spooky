@@ -81,4 +81,9 @@ public class UIAndStuff : MonoBehaviour
             audioji.sfxSound.Play();
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

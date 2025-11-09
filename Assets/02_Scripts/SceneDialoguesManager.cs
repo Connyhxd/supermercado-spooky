@@ -20,11 +20,13 @@ public class SceneDialoguesManager : MonoBehaviour
     private void Start()
     {
         Talk();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Mouse0))
         {
             Talk();
         }

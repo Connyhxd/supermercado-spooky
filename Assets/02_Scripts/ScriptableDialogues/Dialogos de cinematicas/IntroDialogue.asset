@@ -25,7 +25,7 @@ MonoBehaviour:
     phrase: Truly, an unmissable event. What do you think, my apprentice?
   - characterName: Batya
     characterSprite: {fileID: 21300000, guid: 7dfabb0d769811a4b835eb2bc9a428f3, type: 3}
-    phrase: Oooh, I'm sure it will be a succes!
+    phrase: Oooh, I'm sure it will be a success!
   - characterName: Mage
     characterSprite: {fileID: 21300000, guid: bbd5dd24d01403640805d356c8361764, type: 3}
     phrase: The outcome of this event will also define your future as a magician,
