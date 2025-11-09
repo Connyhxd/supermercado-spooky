@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     public ListGenerator listGenerator;
 
     public TextMeshProUGUI boletaText;
+    public GameObject boletabg;
 
     [HideInInspector] public bool lastPurchaseCorrect = false;
     [HideInInspector] public bool purchaseMade = false;
@@ -29,6 +30,12 @@ public class Inventory : MonoBehaviour
         if (canCheckout && Input.GetKeyDown(KeyCode.Q))
         {
             Boleta();
+
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+            boletabg.SetActive(true);
             purchaseMade = true;
             if (checkoutUIPrompt != null) checkoutUIPrompt.SetActive(false);
             audioji.sfxSound.resource = audioji.buySound;
@@ -107,20 +114,20 @@ public class Inventory : MonoBehaviour
             subtotalSinDescuento += totalItemPrice;
             totalDescuentoAplicado += currentDiscount;
 
-            string itemDetails = $"{item.itemName} x{count} ({item.itemType}) - Subtotal: ${totalItemPrice:F2}";
+            string itemDetails = $"{item.itemName} x{count} ({item.itemType}) -- Subtotal: ${totalItemPrice}";
             if (currentDiscount > 0)
             {
-                itemDetails += $" (Desc. -${currentDiscount:F2})";
+                itemDetails += $" (Disc. -${currentDiscount})";
             }
             voucherString += itemDetails + "\n";
         }
 
         float totalAPagar = subtotalSinDescuento - totalDescuentoAplicado;
         voucherString += "\n---------------------------\n";
-        voucherString += $"**SUBTOTAL (Sin Desc.):** **${subtotalSinDescuento:F2}**\n";
-        voucherString += $"**DESCUENTOS APLICADOS:** **-${totalDescuentoAplicado:F2}**\n";
+        voucherString += $"**SUBTOTAL (No Disc.):** **${subtotalSinDescuento}**\n";
+        voucherString += $"**APPLIED DISCOUNTS:** **${totalDescuentoAplicado}**\n";
         voucherString += "\n---------------------------\n";
-        voucherString += $"**TOTAL FINAL A PAGAR:** **${totalAPagar:F2}**\n";
+        voucherString += $"**TOTAL:** **${totalAPagar}**\n";
         if (boletaText != null)
         {
             boletaText.text = voucherString;
@@ -168,5 +175,14 @@ public class Inventory : MonoBehaviour
 
         return
             true;
+    }
+
+    public void CloseBoleta()
+    {
+        boletabg.SetActive(false);
+
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
