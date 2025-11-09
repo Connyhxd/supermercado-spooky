@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class Inventory : MonoBehaviour
 {
@@ -21,7 +19,6 @@ public class Inventory : MonoBehaviour
     public bool canCheckout = false;
     public GameObject checkoutUIPrompt;
 
-    public bool payed;
 
     public TextMeshProUGUI timerText;
 
@@ -33,7 +30,7 @@ public class Inventory : MonoBehaviour
             checkoutUIPrompt.SetActive(showCheckoutUI);
         }
 
-        if (canCheckout && Input.GetKeyDown(KeyCode.Q) && !payed)
+        if (canCheckout && Input.GetKeyDown(KeyCode.Q) && !purchaseMade)
         {
             Boleta();
 
@@ -47,7 +44,6 @@ public class Inventory : MonoBehaviour
             audioji.sfxSound.resource = audioji.buySound;
             audioji.sfxSound.Play();
 
-            payed = true;
         }
     }
 
