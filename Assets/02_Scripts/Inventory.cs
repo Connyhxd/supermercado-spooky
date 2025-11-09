@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using static UnityEditor.Progress;
 
@@ -19,6 +20,10 @@ public class Inventory : MonoBehaviour
     public bool canCheckout = false;
     public GameObject checkoutUIPrompt;
 
+    public bool payed;
+    public float timer;
+    public TextMeshProUGUI timerText;
+
     private void Update()
     {
         bool showCheckoutUI = canCheckout && !purchaseMade;
@@ -27,7 +32,7 @@ public class Inventory : MonoBehaviour
             checkoutUIPrompt.SetActive(showCheckoutUI);
         }
 
-        if (canCheckout && Input.GetKeyDown(KeyCode.Q))
+        if (canCheckout && Input.GetKeyDown(KeyCode.Q) && !payed)
         {
             Boleta();
 
@@ -40,6 +45,8 @@ public class Inventory : MonoBehaviour
             if (checkoutUIPrompt != null) checkoutUIPrompt.SetActive(false);
             audioji.sfxSound.resource = audioji.buySound;
             audioji.sfxSound.Play();
+
+            payed = true;
         }
     }
 
@@ -184,5 +191,13 @@ public class Inventory : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        timer += Time.deltaTime;
+        if (timer >= 4f)
+        {
+
+            timerText.text = "I think that's all. Time to go back to the bus stop.";
+            timer = 0f;
+        }
     }
 }
