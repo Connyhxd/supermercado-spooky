@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEditor.SceneManagement;
@@ -21,7 +22,7 @@ public class Inventory : MonoBehaviour
     public GameObject checkoutUIPrompt;
 
     public bool payed;
-    public float timer;
+
     public TextMeshProUGUI timerText;
 
     private void Update()
@@ -192,12 +193,16 @@ public class Inventory : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        timer += Time.deltaTime;
-        if (timer >= 4f)
-        {
+        StartCoroutine(ShowMessage("I think that's all. Time to go back to the bus stop."));
+    }
 
-            timerText.text = "I think that's all. Time to go back to the bus stop.";
-            timer = 0f;
-        }
+    private IEnumerator ShowMessage(string message)
+    {
+        timerText.text = message;
+        timerText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(4f);
+
+        timerText.gameObject.SetActive(false);
     }
 }
