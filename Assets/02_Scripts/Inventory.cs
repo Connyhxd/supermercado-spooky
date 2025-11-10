@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
             checkoutUIPrompt.SetActive(showCheckoutUI);
         }
 
-        if (canCheckout && Input.GetKeyDown(KeyCode.Q) && !purchaseMade)
+        if (canCheckout && Input.GetKeyDown(KeyCode.Q) &&  !purchaseMade)
         {
             Boleta();
 
@@ -92,7 +92,7 @@ public class Inventory : MonoBehaviour
             if (itemCounts.ContainsKey(item)) itemCounts[item]++;
             else itemCounts.Add(item, 1);
         }
-        voucherString += "--- **BOLETA** ---\n\n";
+        voucherString += "--- RECEIPT ---\n\n";
 
         foreach (var kvp in itemCounts)
         {
@@ -129,10 +129,10 @@ public class Inventory : MonoBehaviour
 
         float totalAPagar = subtotalSinDescuento - totalDescuentoAplicado;
         voucherString += "\n---------------------------\n";
-        voucherString += $"**SUBTOTAL (No Disc.):** **${subtotalSinDescuento}**\n";
-        voucherString += $"**APPLIED DISCOUNTS:** **${totalDescuentoAplicado}**\n";
+        voucherString += $"SUBTOTAL (No Disc.): ${subtotalSinDescuento}\n";
+        voucherString += $"APPLIED DISCOUNTS: ${totalDescuentoAplicado}\n";
         voucherString += "\n---------------------------\n";
-        voucherString += $"**TOTAL:** **${totalAPagar}**\n";
+        voucherString += $"TOTAL: ${totalAPagar}**\n";
         if (boletaText != null)
         {
             boletaText.text = voucherString;
