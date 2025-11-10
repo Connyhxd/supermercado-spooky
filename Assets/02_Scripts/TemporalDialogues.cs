@@ -17,6 +17,10 @@ public class TemporalDialogues : MonoBehaviour
             {
                 StartCoroutine(ShowMessage("There's an empty cart over there, I should use it to put the items I'll buy."));
             }
+            if (currentEvent == 1)
+            {
+                StartCoroutine(ShowMessage("... I shouldn't be here."));
+            }
         }
     }
 
