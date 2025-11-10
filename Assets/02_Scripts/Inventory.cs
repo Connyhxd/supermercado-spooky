@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
 
     [HideInInspector] public bool lastPurchaseCorrect = false;
     [HideInInspector] public bool purchaseMade = false;
+    [HideInInspector] public bool extraItemsBought = false;
 
     public bool canCheckout = false;
     public GameObject checkoutUIPrompt;
@@ -146,8 +147,18 @@ public class Inventory : MonoBehaviour
         List<ItemTemplate> requiredList = listGenerator.shoppingList;
         List<ItemTemplate> purchasedList = itemsInCart;
 
-        if (purchasedList.Count != requiredList.Count)
+        if (purchasedList.Count > requiredList.Count)
+        {
+            extraItemsBought = true;
+        }
+        else
+        {
+            extraItemsBought = false;
+        }
+
+        if (purchasedList.Count < requiredList.Count)
             return false;
+
 
         Dictionary<ItemTemplate, int> requiredCounts = new Dictionary<ItemTemplate, int>();
         foreach (ItemTemplate item in requiredList)
@@ -163,17 +174,17 @@ public class Inventory : MonoBehaviour
             else purchasedCounts.Add(item, 1);
         }
 
-        if (requiredCounts.Count != purchasedCounts.Count) return false;
+        if (purchasedCounts.Count < requiredCounts.Count)
+            return false;
 
         foreach (var requiredKvp in requiredCounts)
         {
             ItemTemplate item = requiredKvp.Key;
             int requiredCount = requiredKvp.Value;
 
-            if (!purchasedCounts.TryGetValue(item, out int purchasedCount) || purchasedCount != requiredCount)
+            if (!purchasedCounts.TryGetValue(item, out int purchasedCount) || purchasedCount < requiredCount)
             {
-                return
-                    false;
+                return false;
             }
         }
 

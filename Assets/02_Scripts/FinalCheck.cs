@@ -64,9 +64,18 @@ public class FinalCheck : MonoBehaviour
         {
             if (cartInventory.lastPurchaseCorrect)
             {
-                Debug.Log("Compra Correcta");
-                SceneManager.LoadScene("GoodEnd");
+                if (cartInventory.extraItemsBought)
+                {
+                    Debug.Log("Compra Correcta but Objetos Extra");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("NeutralEnd");
+                }
+                else
+                {
+                    Debug.Log("Compra Correcta");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("GoodEnd");
+                }
             }
+
             else
             {
                 Debug.Log("Compra Incorrecta");

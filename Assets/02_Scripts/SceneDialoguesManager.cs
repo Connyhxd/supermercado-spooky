@@ -115,5 +115,10 @@ public class SceneDialoguesManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene("MainMenu");
         }
+        else if (currentScene == "NeutralEnd")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }
